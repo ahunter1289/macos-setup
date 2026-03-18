@@ -1,37 +1,75 @@
 # macos-setup
 
-Personal macOS setup and configuration for a new machine.
+Personal macOS setup and configuration.
 
-This repository documents the baseline steps used to initialize a new MacBook and will evolve into a fully reproducible system setup (dotfiles, scripts, Automator workflows, etc.).
+This repository is designed to support **two different approaches** to setting up a Mac:
 
----
-
-## Overview
-
-This setup covers:
-
-- Initial macOS configuration
-- Core application installs
-- Developer tooling (Xcode Command Line Tools)
-- Git configuration
-- SSH setup for GitHub
+1. **State-based configuration (recommended)**
+2. **Command-based setup (manual / documented)**
 
 ---
 
-## Initial macOS Configuration
+## Two Approaches to macOS Setup
 
-On first boot:
+### 1. State-Based Setup (Preferred)
 
+This approach treats your system configuration as **state**:
+
+- Configuration is stored in files (dotfiles, scripts, workflows)
+- The repository is the **source of truth**
+- Setup is applied via install/bootstrap scripts
+- Changes are version-controlled and reproducible
+
+Examples:
+- `.gitconfig`
+- `.zshrc`
+- Automator workflows
+- Shell scripts
+
+👉 See full guide:  
+[State-Based Setup](docs/setup/state-based.md)
+
+---
+
+### 2. Command-Based Setup
+
+This approach documents setup as a sequence of **terminal commands**:
+
+<<<<<<< HEAD
+- Manual execution of setup steps
+- Useful for understanding and bootstrapping
+- Less reproducible over time
+- Harder to maintain consistency across machines
+
+Examples:
+- `git config --global ...`
+- `ssh-keygen`
+- manual app installs
+
+👉 See full guide:  
+[Command-Based Setup](docs/setup/command-based.md)
+=======
 - Set up as a new device
 - Log in to Apple account
 - Connect to wifi
 - Set local user (e.g., `your-username`)
 - Disable analytics and data sharing (no crash reporting, no system analytics)
+>>>>>>> cd85311cd21774a1b5a5dfc566841c400d27dad1
 
 ---
 
-## Applications
+## Repository Structure
 
+<<<<<<< HEAD
+```text
+macos-setup/
+├── dotfiles/        # Source-of-truth config files
+├── install/         # Scripts to apply configuration
+├── services/        # Automator workflows (UI layer)
+├── scripts/         # Shell scripts (logic layer)
+├── docs/            # Documentation and guides
+└── bootstrap.sh     # Entry point for full setup
+=======
 Installed manually:
 
 - Google Chrome (from website)
@@ -41,120 +79,3 @@ Installed manually:
 - Microsoft OneNote (from app store)
 
 ---
-
-## Developer Environment
-
-### Xcode Command Line Tools
-
-Installed via:
-
-```bash
-xcode-select --install
-```
-
-Provides Git, Clang, and core developer utilities.
-
----
-
-### Git Configuration
-
-Configured globally with:
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your-email@example.com"
-git config --global init.defaultBranch main
-git config --global color.ui auto
-git config --global pull.rebase false
-```
-
-This sets identity, default branch, CLI behavior, and pull strategy.
-
----
-
-### SSH Setup (GitHub)
-
-SSH is used for authentication instead of HTTPS.
-
-Steps:
-
-```bash
-ssh-keygen -t ed25519 -C "your-email@example.com"
-eval "$(ssh-agent -s)"
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-pbcopy < ~/.ssh/id_ed25519.pub
-```
-
-- Add the copied key to GitHub (Settings → SSH keys)
-- Test connection:
-
-```bash
-ssh -T git@github.com
-```
-
-Expected result:
-
-```
-Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
----
-
-### Git Remote Configuration
-
-Repositories use SSH:
-
-```bash
-git@github.com:YOUR-USERNAME/repo-name.git
-```
-
-Example:
-
-```bash
-git remote set-url origin git@github.com:YOUR-USERNAME/macos-setup.git
-```
-
----
-
-## Repository Initialization
-
-Projects are created under:
-
-```bash
-~/code/
-```
-
-Typical workflow:
-
-```bash
-mkdir -p ~/code/project-name
-cd ~/code/project-name
-git init
-```
-
----
-
-## Philosophy
-
-- Reproducible setup
-- Source-controlled configuration
-- Separation of concerns:
-  - Automator workflows → UI triggers
-  - Shell scripts → logic
-- SSH-first Git workflow
-
----
-
-## Future Work
-
-- Dotfile management (`.gitconfig`, `.zshrc`, etc.)
-- Automator workflows + shell scripts
-- Bootstrap/install scripts
-- Homebrew package management
-
----
-
-## Notes
-
-- Moving from manual commands → managed configuration files
-- This repository is the source of truth for system setup
