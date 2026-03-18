@@ -2,7 +2,7 @@
 
 Personal macOS setup and configuration.
 
-This repository is designed to support **two different approaches** to setting up a Mac:
+This repository supports two different approaches to setting up a Mac:
 
 1. **State-based configuration (recommended)**
 2. **Command-based setup (manual / documented)**
@@ -14,16 +14,22 @@ This repository is designed to support **two different approaches** to setting u
 ### 1. State-Based Setup (Preferred)
 
 This approach treats your system configuration as **state**:
+- Configuration is stored in files (dotfiles, scripts, workflows)
+- The repository becomes the source of truth
+- Setup is reproducible and version-controlled
 
-👉 See full guide:  
-[State-Based Setup](docs/setup/state-based.md)
+👉 [View State-Based Setup](docs/setup/state-based.md)
 
 ---
 
 ### 2. Command-Based Setup
 
 This approach documents setup as a sequence of **terminal commands**:
-[Command-Based Setup](docs/setup/command-based.md)
+- Steps are executed manually
+- Useful for learning and initial setup
+- Less reproducible over time
+
+👉 [View Command-Based Setup](docs/setup/command-based.md)
 
 ---
 
@@ -31,19 +37,11 @@ This approach documents setup as a sequence of **terminal commands**:
 
 ```text
 macos-setup/
-├── dotfiles/        # Source-of-truth config files
-├── install/         # Scripts to apply configuration
+├── dotfiles/        # Source-of-truth configuration
+├── install/         # Scripts that apply configuration
 ├── services/        # Automator workflows (UI layer)
 ├── scripts/         # Shell scripts (logic layer)
-├── docs/            # Documentation and guides
+├── docs/            # Documentation
 └── bootstrap.sh     # Entry point for full setup
-=======
-Installed manually:
+```
 
-- Google Chrome (from website)
-- Microsoft Word (from app store)
-- Microsoft Excel (from app store)
-- Microsoft PowerPoint (from app store)
-- Microsoft OneNote (from app store)
-
----
