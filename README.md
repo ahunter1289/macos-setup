@@ -24,6 +24,7 @@ On first boot:
 
 - Set up as a new device
 - Log in to Apple account
+- Connect to wifi
 - Set local user (e.g., `your-username`)
 - Disable analytics and data sharing (no crash reporting, no system analytics)
 
@@ -33,11 +34,11 @@ On first boot:
 
 Installed manually:
 
-- Google Chrome
-- Microsoft Word
-- Microsoft Excel
-- Microsoft PowerPoint
-- Microsoft OneNote
+- Google Chrome (from website)
+- Microsoft Word (from app store)
+- Microsoft Excel (from app store)
+- Microsoft PowerPoint (from app store)
+- Microsoft OneNote (from app store)
 
 ---
 
